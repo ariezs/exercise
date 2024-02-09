@@ -36,9 +36,13 @@ public class LetterCounting {
 			if(indexSplitIntoDigits.length == 3) {
 				String thirdDigit = String.valueOf(indexSplitIntoDigits[2]);
 				currentDecade = secondDigit + "0";
-				numArray.add(nb.get(firstDigit).concat(nb.get("100").concat(" ").concat(nb.get(currentDecade)+nb.get(thirdDigit))));
+				if(!thirdDigit.equals("0")) {
+					numArray.add(nb.get(firstDigit).concat(nb.get("100").concat(" ").concat(nb.get(currentDecade)+nb.get(thirdDigit))));
+				} 
+				else {
+					numArray.add(nb.get(firstDigit) + nb.get("100") + " " + nb.get(currentDecade));
+				}
 			}
-			
 		}
 		numArray.add(nb.get("1000"));
 		numArray.forEach(n -> System.out.println(n));
